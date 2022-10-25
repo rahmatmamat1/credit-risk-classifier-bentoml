@@ -1,0 +1,6 @@
+numpy
+pandas
+scikit-learn
+xgboost
+bentoml>=1.0.0
+pydantic
