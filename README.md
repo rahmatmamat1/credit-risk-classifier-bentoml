@@ -42,7 +42,7 @@ The raw dataset is in the file "CreditScoring.csv" which contains 4455 rows and 
     ```
     This will save a new model in the BentoML local model store, a new version tag is automatically generated when the model is saved. You can see all model revisions from CLI via bentoml models commands:
     ```bash
-    bentoml models get iris_clf:latest
+    bentoml models get credit_risk_model:latest
     bentoml models list
     bentoml models --help
     ```
