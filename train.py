@@ -87,36 +87,6 @@ X_train = dv.fit_transform(train_dicts)
 test_dicts = df_test.fillna(0).to_dict(orient='records')
 X_test = dv.transform(test_dicts)
 
-
-# ### Random forest
-
-# rf = RandomForestClassifier(n_estimators=200,
-#                             max_depth=10,
-#                             min_samples_leaf=3,
-#                             random_state=1)
-# rf.fit(X_train, y_train)
-
-
-# ### XGBoost
-# 
-# Note:
-# 
-# We removed feature names
-# 
-# It was 
-# 
-# ```python
-# features = dv.get_feature_names_out()
-# dtrain = xgb.DMatrix(X_train, label=y_train, feature_names=features)
-# ```
-# 
-# Now it's
-# 
-# ```python
-# dtrain = xgb.DMatrix(X_train, label=y_train)
-# ```
-
-
 # Create train matrix
 dtrain = xgb.DMatrix(X_train, label=y_train)
 
@@ -139,7 +109,6 @@ model = xgb.train(xgb_params, dtrain, num_boost_round=175)
 
 
 # BentoML
-
 bentoml.xgboost.save_model(
     'credit_risk_model',
     model,
